@@ -216,6 +216,12 @@
 
         console.log(data)
 
+
+        if (data.name === undefined) {
+                alert('City not found. Do not use spaces after the city name.');
+                return;
+            }
+
         document.querySelector(".city").innerHTML = "Time in " + data.name 
         document.querySelector(".temperature").innerHTML = Math.floor(data.main.temp) + "°C"
         document.querySelector(".text").innerHTML = data.weather[0].description
@@ -244,7 +250,10 @@
     }
 
 
+
  
 
     
 </script>
+
+
