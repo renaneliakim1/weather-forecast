@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500&family=Open+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500&family=Open+Sans:wght@300;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -25,7 +29,7 @@
 
             <div class="day">
                 <p>max</p>
-                <p>now</p>
+                <p class="now">now</p>
                 <p>min</p>
 
                 <p class="max"></p>
@@ -48,9 +52,9 @@
         <p class="info">Generated with <a href="https://openweathermap.org/">openweather API</a></p>
 
     </div>
-    
-    
-    
+
+<script src="app.js" defer></script>
+
 </body>
 
 </html>
@@ -74,7 +78,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        
+
     }
 
     .weather-forecast {
@@ -84,7 +88,7 @@
         padding: 20px;
         width: 95%;
         max-width: 450px;
-     
+
 
 
     }
@@ -186,14 +190,14 @@
 
     }
 
-    .info{
+    .info {
         color: #ffffff;
         font-weight: 400px;
         text-align: center;
         font-size: 14px;
     }
 
-    .info a{
+    .info a {
         color: #eb6e4b;
         font-weight: 400px;
         text-align: center;
@@ -202,11 +206,9 @@
 
     }
 
-    .info a:hover{
+    .info a:hover {
         color: aqua;
     }
-
-
 </style>
 
 
@@ -218,24 +220,32 @@
 
 
         if (data.name === undefined) {
-                alert('City not found. Do not use spaces after the city name.');
-                return;
-            }
+            alert('City not found. Do not use spaces after the city name.');
+            return;
+        }
 
-        document.querySelector(".city").innerHTML = "Time in " + data.name 
-        document.querySelector(".temperature").innerHTML = Math.floor(data.main.temp) + "°C"
+
+
+
+
+        document.querySelector(".city").innerHTML = "Time in " + data.name
+        document.querySelector(".temperature").innerHTML = Math.floor(data.main.temp) + "°F"
         document.querySelector(".text").innerHTML = data.weather[0].description
         document.querySelector(".moisture").innerHTML = "Moisture " + data.main.humidity + "%"
         document.querySelector(".img").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
 
-        document.querySelector(".max").innerHTML = Math.floor(data.main.temp_max) + "°C"
-        document.querySelector(".min").innerHTML = Math.floor(data.main.temp_min) + "°C"
+        document.querySelector(".max").innerHTML = Math.floor(data.main.temp_max) + "°F"
+        document.querySelector(".min").innerHTML = Math.floor(data.main.temp_min) + "°F"
 
 
-    }
+        exibirTextoNaTela('.now', `The temperature is ${Math.floor(data.main.temp)}  Fahrenheit`);
+        }
+
+
+    
 
     async function searchcity(city) {
-        const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=en&units=metric`).then(response => response.json())
+        const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`).then(response => response.json())
 
         data_on_screen(data)
 
@@ -250,10 +260,18 @@
     }
 
 
+    function exibirTextoNaTela(tag, texto) {
+         /*    let campo = document.querySelector(tag);
+            campo.innerHTML = texto; */
+            responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
+        }
 
- 
 
-    
+        function exibirMensagemInicial() {
+
+            exibirTextoNaTela('.now', `A temperatura é ${now}`);
+        }
+
+        exibirMensagemInicial();
+
 </script>
-
-
