@@ -211,22 +211,16 @@
     }
 </style>
 
-
 <script>
     const key = "b71885cdae0a187aee30030c96adfec3"
     function data_on_screen(data) {
 
         console.log(data)
 
-
         if (data.name === undefined) {
             alert('City not found. Do not use spaces after the city name.');
             return;
         }
-
-
-
-
 
         document.querySelector(".city").innerHTML = "Time in " + data.name
         document.querySelector(".temperature").innerHTML = Math.floor(data.main.temp) + "°F"
@@ -237,15 +231,11 @@
         document.querySelector(".max").innerHTML = Math.floor(data.main.temp_max) + "°F"
         document.querySelector(".min").innerHTML = Math.floor(data.main.temp_min) + "°F"
 
-
-        exibirTextoNaTela('.now', `The temperature is ${Math.floor(data.main.temp)}  Fahrenheit`);
-        }
-
-
-    
+        exibirTextoNaTela('.now', `The temperature is ${Math.floor(data.main.temp)} Fahrenheit`);
+    }
 
     async function searchcity(city) {
-        const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=pt_br&units=metric`).then(response => response.json())
+        const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=en&units=imperial`).then(response => response.json())
 
         data_on_screen(data)
 
@@ -259,19 +249,15 @@
         searchcity(city)
     }
 
-
     function exibirTextoNaTela(tag, texto) {
-         /*    let campo = document.querySelector(tag);
+        /*    let campo = document.querySelector(tag);
             campo.innerHTML = texto; */
-            responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
-        }
+        responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
+    }
 
+    function exibirMensagemInicial() {
+        exibirTextoNaTela('.now', `A temperatura é ${now}`);
+    }
 
-        function exibirMensagemInicial() {
-
-            exibirTextoNaTela('.now', `A temperatura é ${now}`);
-        }
-
-        exibirMensagemInicial();
-
+    exibirMensagemInicial();
 </script>
