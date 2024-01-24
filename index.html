@@ -219,7 +219,14 @@
 <script>
     const key = "b71885cdae0a187aee30030c96adfec3"
 
-   
+    function exibirTextoNaTela(tag, texto) {
+/*         let campo = document.querySelector(tag);
+              campo.innerHTML = texto;  */ 
+       responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
+    }
+
+    exibirTextoNaTela('.now', `The temperature is ${Math.floor(data.main.temp)} Fahrenheit`);
+    
 
     function data_on_screen(data) {
 
@@ -239,8 +246,7 @@
         document.querySelector(".max").innerHTML = Math.floor(data.main.temp_max) + "°F"
         document.querySelector(".min").innerHTML = Math.floor(data.main.temp_min) + "°F"
 
-        exibirTextoNaTela('.now', `The temperature is ${Math.floor(data.main.temp)} Fahrenheit`);
-    }
+
 
     async function searchcity(city) {
         const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang=en&units=imperial`).then(response => response.json())
@@ -257,11 +263,7 @@
         searchcity(city)
     }
 
-    function exibirTextoNaTela(tag, texto) {
-/*         let campo = document.querySelector(tag);
-              campo.innerHTML = texto;  */ 
-       responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
-    }
+ 
 
     function exibirMensagemInicial() {
         exibirTextoNaTela('.now', `A temperatura é ${now}`);
@@ -269,4 +271,5 @@
     }
 
     exibirMensagemInicial();
+}
 </script>
