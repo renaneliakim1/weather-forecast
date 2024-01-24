@@ -214,7 +214,10 @@
 <script>
     const key = "b71885cdae0a187aee30030c96adfec3"
 
-
+    function playAudio() {
+            const city = document.querySelector(".input-city").value;
+            searchcity(city);
+        }
 
     function data_on_screen(data) {
 
@@ -253,9 +256,9 @@
     }
 
     function exibirTextoNaTela(tag, texto) {
-         let campo = document.querySelector(tag);
-/*             campo.innerHTML = texto;  */     
-        responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
+/*         let campo = document.querySelector(tag);
+              campo.innerHTML = texto;  */ 
+       responsiveVoice.speak(texto, 'US English Male', { rate: 1.0 });
     }
 
     function exibirMensagemInicial() {
