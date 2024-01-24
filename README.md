@@ -38,11 +38,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 
--Sistema de previsão do tempo em cidades de qualquer lugar do mundo com áudio.
+-Sistema de busca da previsão do tempo com áudio, em cidades de qualquer lugar do mundo .
 
 *Observações:
 
--O áudio pode não ser compatível com alguns navegadores, (recomendo o uso no Google Chrome/Safari).
+-O áudio pode não ser compatível com alguns navegadores, (recomendo o uso no Google Chrome PC /Safari no IOS).
 -Não deixar espaço após o nome da cidade.
 
 
