@@ -31,11 +31,21 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - HTML e CSS
 - JavaScript
 - Git e Github
-- API OpenWeather
+- <a href="https://openweathermap.org/">API OpenWeather</a>  
+- <a href="https://responsivevoice.org/">API Responsive Voice</a>  
+
 
 ## 💻 Projeto
 
-Sistema de previsão do tempo em cidades de qualquer lugar do mundo.
+
+-Sistema de previsão do tempo em cidades de qualquer lugar do mundo com áudio.
+
+*Observações:
+
+-O áudio pode não ser compatível com alguns navegadores, (recomendo o uso no Google Chrome/Safari).
+-Não deixar espaço após o nome da cidade.
+
+
 - [Acesse o projeto finalizado, online](https://weather-forecast-livid.vercel.app/)
 
 
