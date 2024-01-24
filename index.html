@@ -51,6 +51,8 @@
         <br>
         <p class="info">Generated with <a href="https://openweathermap.org/">openweather API</a></p>
 
+
+
     </div>
 
 <script src="app.js" defer></script>
@@ -214,10 +216,7 @@
 <script>
     const key = "b71885cdae0a187aee30030c96adfec3"
 
-    function playAudio() {
-            const city = document.querySelector(".input-city").value;
-            searchcity(city);
-        }
+   
 
     function data_on_screen(data) {
 
@@ -263,6 +262,8 @@
 
     function exibirMensagemInicial() {
         exibirTextoNaTela('.now', `A temperatura é ${now}`);
+        searchcity(city)
+
     }
 
     exibirMensagemInicial();
