@@ -43,6 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 *Observações:
 
 -O áudio pode não ser compatível com alguns navegadores, (recomendo o uso no Google Chrome PC /Safari no IOS).
+
 -Não deixar espaço após o nome da cidade.
 
 
